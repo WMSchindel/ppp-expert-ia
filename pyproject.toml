@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ppp-expert-ia"
+version = "0.1.0"
+description = "Sistema Inteligente para Elaboração de Perfil Profissiográfico Previdenciário"
+readme = "README.md"
+requires-python = ">=3.13"
+
+authors = [
+    {name = "Werner"}
+]
+
+dependencies = [
+    "loguru",
+    "python-dotenv",
+    "rich",
+    "pydantic",
+    "pydantic-settings",
+    "sqlalchemy",
+    "alembic",
+    "python-docx",
+    "docxtpl",
+    "pdfplumber",
+    "pymupdf"
+]
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
