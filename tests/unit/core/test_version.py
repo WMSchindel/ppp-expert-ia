@@ -6,8 +6,8 @@ def test_app_name():
 
 
 def test_version():
-    assert version.version == "0.1.0-alpha"
+    assert version.version == "0.1.0"
 
 
 def test_author():
-    assert version.author == "Werner Schindel"
+    assert version.author == "Werner"

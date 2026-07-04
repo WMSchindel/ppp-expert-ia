@@ -1,11 +1,20 @@
 """
 ===============================================================================
 Projeto : PPP Expert IA
-Módulo  : Core
+Plataforma : SST Platform
+Framework : SST Core
+
 Arquivo : version.py
+Módulo   : Core
 
 Descrição:
     Centraliza as informações oficiais da aplicação.
+
+Autor:
+    Werner
+
+Versão:
+    0.1.0-alpha
 ===============================================================================
 """
 
@@ -14,10 +23,16 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True, slots=True)
 class Version:
-    """Representa os metadados da aplicação."""
+    """
+    Representa os metadados oficiais da aplicação.
+    """
 
     app_name: str = "PPP Expert IA"
-    internal_name: str = "SST Platform"
+
+    platform_name: str = "SST Platform"
+
+    core_name: str = "SST Core"
+
     version: str = "0.1.0-alpha"
 
     author: str = "Werner"

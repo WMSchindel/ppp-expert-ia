@@ -1,53 +1,64 @@
+"""
+===============================================================================
+Projeto    : PPP Expert IA
+Plataforma : SST Platform
+Framework  : SST Core
+
+Arquivo    : paths.py
+
+Descrição:
+    Gerenciamento centralizado dos caminhos da aplicação.
+===============================================================================
+"""
+
 from pathlib import Path
 
 
 class Paths:
-    """Centraliza todos os caminhos do projeto."""
+    """Centraliza todos os caminhos utilizados pela aplicação."""
 
-    def __init__(self):
+    def __init__(self) -> None:
 
-        self.PROJECT_ROOT = Path(__file__).resolve().parents[2]
+        # Diretório raiz do projeto
+        self.project_root = Path(__file__).resolve().parents[2]
 
-        self.SRC = self.PROJECT_ROOT / "src"
+        # Código-fonte
+        self.src = self.project_root / "src"
 
-        self.DATA = self.PROJECT_ROOT / "data"
+        # Recursos
+        self.assets = self.project_root / "assets"
+        self.docs = self.project_root / "docs"
+        self.templates = self.project_root / "templates"
 
-        self.DATABASE = self.DATA / "database"
+        # Dados da aplicação
+        self.data = self.project_root / "data"
 
-        self.BACKUPS = self.DATA / "backups"
+        self.database = self.data / "database"
+        self.logs = self.data / "logs"
+        self.uploads = self.data / "uploads"
+        self.output = self.data / "output"
+        self.backups = self.data / "backups"
 
-        self.UPLOADS = self.DATA / "uploads"
+        # Testes
+        self.tests = self.project_root / "tests"
 
-        self.OUTPUT = self.DATA / "output"
+    def initialize(self) -> None:
+        """Cria automaticamente a estrutura necessária."""
 
-        self.LOGS = self.DATA / "logs"
-
-        self.DOCS = self.PROJECT_ROOT / "docs"
-
-        self.TEMPLATES = self.PROJECT_ROOT / "templates"
-
-        self.ASSETS = self.PROJECT_ROOT / "assets"
-
-    def create_directories(self):
-
-        directories = [
-
-            self.DATA,
-
-            self.DATABASE,
-
-            self.BACKUPS,
-
-            self.UPLOADS,
-
-            self.OUTPUT,
-
-            self.LOGS
-
-        ]
+        directories = (
+            self.assets,
+            self.docs,
+            self.templates,
+            self.data,
+            self.database,
+            self.logs,
+            self.uploads,
+            self.output,
+            self.backups,
+            self.tests,
+        )
 
         for directory in directories:
-
             directory.mkdir(parents=True, exist_ok=True)
 
 

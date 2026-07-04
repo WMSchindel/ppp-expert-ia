@@ -47,16 +47,21 @@ Critérios
 
 ---
 
-### CF-004
+CF-004
 
-Criar Logger.
+Status
 
-Critérios
+🟢 Em andamento
 
-- Arquivo de log
-- Console
-- Rotação
-- UTF-8
+✔ environments.py
+
+⬜ defaults.py
+
+⬜ settings.py
+
+⬜ integração
+
+⬜ documentação final
 
 ---
 

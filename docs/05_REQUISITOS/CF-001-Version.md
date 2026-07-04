@@ -1,79 +1,20 @@
-# CF-001 - Módulo Version
-
-## Identificação
-
-Código: CF-001
-
-Sprint: 001
-
-Módulo: Core
-
-Prioridade: Alta
-
-Status: Em Desenvolvimento
-
----
+# CF-001 — Version
 
 ## Objetivo
 
-Centralizar todas as informações oficiais do produto em um único módulo.
+Centralizar os metadados da aplicação.
 
----
-
-## Justificativa
-
-Evitar duplicação de informações como nome do sistema, versão e autor.
-
-Todo o sistema deverá consultar este módulo para obter essas informações.
-
----
-
-## Requisitos Funcionais
-
-RF-001
-
-O sistema deverá disponibilizar o nome do produto.
-
-RF-002
-
-O sistema deverá disponibilizar a versão.
-
-RF-003
-
-O sistema deverá disponibilizar o autor.
-
-RF-004
-
-O sistema deverá disponibilizar a licença.
-
----
-
-## Critérios de Aceitação
-
-- O módulo deve ser imutável.
-- Deve existir apenas uma instância.
-- Todos os módulos deverão utilizar este objeto.
-
----
-
-## Arquivos
+## Arquivo
 
 src/core/version.py
 
----
+## Critérios
 
-## Testes
+- Imutável
+- Singleton por convenção
+- Tipado
+- Testado
 
-tests/unit/core/test_version.py
+## Status
 
----
-
-## Dependências
-
-Nenhuma.
-
----
-
-## Observações
-
-Primeiro módulo do Core Framework.
+Implementado

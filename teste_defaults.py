@@ -1,0 +1,11 @@
+from src.core.config.defaults import (
+    DEFAULT_LANGUAGE,
+    DEFAULT_ENCODING,
+    DEFAULT_LOG_LEVEL,
+    MAX_UPLOAD_SIZE,
+)
+
+print(DEFAULT_LANGUAGE)
+print(DEFAULT_ENCODING)
+print(DEFAULT_LOG_LEVEL)
+print(MAX_UPLOAD_SIZE)
