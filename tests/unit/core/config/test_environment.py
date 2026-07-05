@@ -1,4 +1,4 @@
-from src.core.config.environments import Environment
+from core.config.environments import Environment
 
 
 def test_environment_values():
