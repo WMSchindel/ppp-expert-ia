@@ -3,8 +3,8 @@ documento: TEC-0001
 titulo: Subsistema de Configuração
 autor: Werner Schindel
 projeto: PPP Expert IA
-versao: 1.0
-data: 05/07/2026
+versao: 1.1
+data: 06/07/2026
 status: Em Desenvolvimento
 tipo: Documentação Técnica
 ---
@@ -32,15 +32,31 @@ src/
 
 ---
 
-# Arquitetura
+# Estrutura Atual
 
 ```text
-core/config/
+core/
+└── config/
+    ├── __init__.py
+    ├── environments.py
+    ├── defaults.py
+    └── settings.py
+```
 
-├── __init__.py
-├── environments.py
-├── defaults.py
-└── settings.py
+---
+
+# Visão Geral da Arquitetura
+
+```text
+                    Configuração da Aplicação
+                               │
+      ┌────────────────────────┼────────────────────────┐
+      │                        │                        │
+      ▼                        ▼                        ▼
+environments.py          defaults.py             settings.py
+      │                        │                        │
+Define os              Define valores         Carrega e fornece
+ambientes              padrão                 configurações
 ```
 
 ---
@@ -50,27 +66,33 @@ core/config/
 O subsistema é responsável por:
 
 - definir os ambientes de execução;
-- armazenar valores padrão da aplicação;
+- definir valores padrão da aplicação;
 - carregar configurações do ambiente;
-- fornecer acesso centralizado às configurações.
+- disponibilizar configurações para os demais módulos.
 
 ---
 
 # Módulos
 
-## environments.py
+---
 
-### Objetivo
+# environments.py
 
-Define os ambientes de execução suportados pela aplicação.
+## Objetivo
 
-### Classe
+Representar os ambientes de execução suportados pela aplicação.
+
+## Responsabilidade
+
+Definir uma Enum segura para utilização em toda a aplicação.
+
+## Interface Pública
 
 ```python
 Environment
 ```
 
-### Valores disponíveis
+## Valores disponíveis
 
 | Enum        | Valor       |
 | ----------- | ----------- |
@@ -78,138 +100,209 @@ Environment
 | TEST        | test        |
 | PRODUCTION  | production  |
 
-### Motivação
+## Estado
 
-A utilização de uma Enum elimina erros provocados por strings
-literais espalhadas pelo código.
-
-Exemplo incorreto:
-
-```python
-if ambiente == "dev":
-```
-
-Exemplo correto:
-
-```python
-if settings.environment == Environment.DEVELOPMENT:
-```
+✅ Implementado.
 
 ---
 
-## defaults.py
+# defaults.py
 
-**Status**
+## Objetivo
 
-⏳ Em desenvolvimento.
+Centralizar todas as constantes padrão utilizadas pelo sistema.
 
-### Objetivo
+Este módulo elimina números mágicos e concentra todas as configurações
+estáticas da aplicação.
 
-Centralizar todos os valores padrão utilizados pela aplicação.
+## Responsabilidade
 
-Exemplos:
+Disponibilizar valores padrão para:
 
-- idioma
-- codificação
-- timezone
-- logging
-- banco de dados
+- configuração geral;
+- logging;
+- banco de dados;
+- upload;
+- documentos.
 
----
-
-## settings.py
-
-**Status**
-
-⏳ Em desenvolvimento.
-
-### Objetivo
-
-Carregar as configurações da aplicação a partir de:
-
-- variáveis de ambiente;
-- arquivo `.env`;
-- valores padrão.
-
----
-
-# Fluxo Geral
+## Organização
 
 ```text
-                Variáveis de Ambiente
-                         │
-                         ▼
-                  pydantic-settings
-                         │
-                         ▼
-                   settings.py
-                         │
-           ┌─────────────┴─────────────┐
-           ▼                           ▼
-    environments.py              defaults.py
-           │                           │
-           └─────────────┬─────────────┘
-                         ▼
-               Demais módulos do sistema
+defaults.py
+
+├── Unidades de Medida
+├── Configuração Geral
+├── Banco de Dados
+├── Logging
+├── Upload
+└── Documentos
+```
+
+## Constantes Disponíveis
+
+### Unidades
+
+| Constante |
+| --------- |
+| KILOBYTE  |
+| MEGABYTE  |
+| GIGABYTE  |
+
+---
+
+### Configuração Geral
+
+| Constante        |
+| ---------------- |
+| DEFAULT_LANGUAGE |
+| DEFAULT_ENCODING |
+| DEFAULT_TIMEZONE |
+
+---
+
+### Banco de Dados
+
+| Constante                 |
+| ------------------------- |
+| DEFAULT_DATABASE_FILENAME |
+
+---
+
+### Logging
+
+| Constante             |
+| --------------------- |
+| DEFAULT_LOG_LEVEL     |
+| DEFAULT_LOG_ROTATION  |
+| DEFAULT_LOG_RETENTION |
+
+---
+
+### Upload
+
+| Constante       |
+| --------------- |
+| MAX_UPLOAD_SIZE |
+
+---
+
+### Documentos
+
+| Constante                |
+| ------------------------ |
+| DEFAULT_OUTPUT_DIRECTORY |
+| DEFAULT_WORD_TEMPLATE    |
+
+---
+
+## Estado
+
+✅ Implementado.
+
+---
+
+# settings.py
+
+## Objetivo
+
+Centralizar todas as configurações carregadas pela aplicação.
+
+## Situação Atual
+
+⏳ Ainda não implementado.
+
+## Responsabilidades Futuras
+
+- carregar configurações do arquivo `.env`;
+- integrar com `pydantic-settings`;
+- utilizar valores de `defaults.py`;
+- validar configurações;
+- fornecer acesso único às configurações.
+
+---
+
+# Fluxo de Funcionamento
+
+```text
+                Arquivo .env
+                     │
+                     ▼
+            pydantic-settings
+                     │
+                     ▼
+               settings.py
+                     │
+          ┌──────────┴──────────┐
+          ▼                     ▼
+ environments.py         defaults.py
+          │                     │
+          └──────────┬──────────┘
+                     ▼
+          Demais módulos do sistema
 ```
 
 ---
 
 # Dependências
 
-O subsistema utiliza as seguintes bibliotecas:
-
-| Biblioteca        | Finalidade                |
-| ----------------- | ------------------------- |
-| enum              | Enumerações               |
-| pathlib           | Manipulação de caminhos   |
-| pydantic-settings | Configuração da aplicação |
-| python-dotenv     | Arquivo `.env`            |
+| Biblioteca        | Finalidade                         |
+| ----------------- | ---------------------------------- |
+| enum              | Enumerações                        |
+| typing            | Final                              |
+| pathlib           | Manipulação de caminhos (futuro)   |
+| pydantic-settings | Configuração da aplicação (futuro) |
+| python-dotenv     | Leitura do arquivo `.env` (futuro) |
 
 ---
 
 # Princípios Arquiteturais
 
-O subsistema segue os seguintes princípios:
+## Responsabilidade Única
 
-## Responsabilidade Única (SRP)
-
-Cada módulo possui apenas uma responsabilidade.
-
----
-
-## Centralização
-
-Todas as configurações ficam concentradas em um único subsistema.
+Cada módulo possui apenas uma responsabilidade claramente definida.
 
 ---
 
 ## Baixo Acoplamento
 
-Os demais módulos dependem apenas da interface pública do subsistema.
+Os módulos não dependem diretamente uns dos outros.
+
+---
+
+## Alta Coesão
+
+Cada módulo trata apenas de um único domínio.
+
+---
+
+## Código Autoexplicativo
+
+Foram eliminados números mágicos e adotadas constantes
+intermediárias sempre que possível.
+
+Exemplo:
+
+```python
+MAX_UPLOAD_SIZE = 50 * MEGABYTE
+```
 
 ---
 
 ## Segurança de Tipos
 
-Sempre que possível são utilizados tipos específicos
-(`Enum`, `Path`, etc.) em substituição a strings.
+Sempre que possível são utilizados:
 
----
+- Enum
+- Final
+- Path (futuramente)
 
-# Estado Atual
-
-| Módulo          | Status |
-| --------------- | :----: |
-| environments.py |   ✅   |
-| defaults.py     |   ⏳   |
-| settings.py     |   ⏳   |
+em substituição a tipos genéricos.
 
 ---
 
 # Testes
 
-Estrutura prevista:
+Estrutura atual.
 
 ```text
 tests/
@@ -221,8 +314,33 @@ tests/
         └── config/
 
             ├── test_environment.py
-            ├── test_defaults.py
-            └── test_settings.py
+            └── test_defaults.py
+```
+
+Próximo teste previsto:
+
+```text
+test_settings.py
+```
+
+---
+
+# Estado Atual do Subsistema
+
+| Módulo          | Status |
+| --------------- | :----: |
+| environments.py |   ✅   |
+| defaults.py     |   ✅   |
+| settings.py     |   ⏳   |
+
+---
+
+# Evolução Prevista
+
+Próxima implementação:
+
+```text
+src/core/config/settings.py
 ```
 
 ---
@@ -230,8 +348,10 @@ tests/
 # Referências
 
 - REQ-CF-004-01 – Environment
+- REQ-CF-004-02 – Defaults
 - ADR-0002 – Estratégia de Imports
-- ER-0001 – Engineering Review do módulo Environment
+- ER-0001 – Environment
+- ER-0002 – Defaults
 - PEP 8
 - PEP 435
-- Documentação oficial do Python
+- PEP 591

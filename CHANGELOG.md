@@ -28,3 +28,19 @@
 - Estrutura do livro.
 - Engineering Review.
 - ADR da estratégia de imports.
+
+# Changelog
+
+## [0.1.0-alpha]
+
+### Added
+
+- Implementação do módulo `defaults.py`.
+- Centralização das constantes globais da aplicação.
+- Introdução do uso de `typing.Final`.
+- Eliminação de números mágicos através de constantes intermediárias.
+- Testes unitários para o módulo `defaults.py`.
+- Documentação técnica do módulo.
+- Engineering Review ER-0002.
+- Capítulo do livro CAP-0003.
+- Diário de Engenharia ENG-0002.

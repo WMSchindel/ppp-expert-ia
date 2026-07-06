@@ -1,10 +1,10 @@
 """
 Módulo: defaults.py
 
-Centraliza os valores padrão utilizados pela aplicação.
+Centraliza todos os valores padrão utilizados pela aplicação.
 
-Este módulo contém apenas constantes. Nenhuma lógica de negócio
-ou leitura de configuração deve ser implementada aqui.
+Este módulo define exclusivamente constantes utilizadas pelo
+PPP Expert IA. Não possui funções, classes ou lógica de negócio.
 
 Autor:
 Werner Schindel
@@ -13,30 +13,117 @@ Projeto:
 PPP Expert IA
 """
 
+from typing import Final
+
+
 # =============================================================================
-# Configurações Gerais
+# Unidades de Medida
 # =============================================================================
 
-DEFAULT_LANGUAGE = "pt-BR"
-DEFAULT_ENCODING = "utf-8"
-DEFAULT_TIMEZONE = "America/Sao_Paulo"
+KILOBYTE: Final[int] = 1024
+MEGABYTE: Final[int] = 1024 * KILOBYTE
+GIGABYTE: Final[int] = 1024 * MEGABYTE
+
+
+# =============================================================================
+# Configuração Geral
+# =============================================================================
+
+DEFAULT_ENCODING: Final[str] = "utf-8"
+DEFAULT_LANGUAGE: Final[str] = "pt-BR"
+DEFAULT_TIMEZONE: Final[str] = "America/Sao_Paulo"
+
 
 # =============================================================================
 # Banco de Dados
 # =============================================================================
 
-DEFAULT_DATABASE_NAME = "ppp.db"
+DEFAULT_DATABASE_FILENAME: Final[str] = "ppp.db"
+
 
 # =============================================================================
 # Logging
 # =============================================================================
 
-DEFAULT_LANGUAGE: str = "pt-BR"
-DEFAULT_ENCODING: str = "utf-8"
-MAX_UPLOAD_SIZE: int = 50 * 1024 * 1024
+DEFAULT_LOG_LEVEL: Final[str] = "INFO"
+DEFAULT_LOG_RETENTION: Final[str] = "30 days"
+DEFAULT_LOG_ROTATION: Final[str] = "10 MB"
+
 
 # =============================================================================
-# Uploads
+# Upload de Arquivos
 # =============================================================================
 
-MAX_UPLOAD_SIZE = 50 * 1024 * 1024  # 50 MB
+MAX_UPLOAD_SIZE: Final[int] = 50 * MEGABYTE
+
+
+# =============================================================================
+# Documentos
+# =============================================================================
+
+DEFAULT_OUTPUT_DIRECTORY: Final[str] = "output"
+DEFAULT_WORD_TEMPLATE: Final[str] = "PPP_Template.docx""""
+Módulo: defaults.py
+
+Centraliza todos os valores padrão utilizados pela aplicação.
+
+Este módulo define exclusivamente constantes utilizadas pelo
+PPP Expert IA. Não possui funções, classes ou lógica de negócio.
+
+Autor:
+Werner Schindel
+
+Projeto:
+PPP Expert IA
+"""
+
+from typing import Final
+
+
+# =============================================================================
+# Unidades de Medida
+# =============================================================================
+
+KILOBYTE: Final[int] = 1024
+MEGABYTE: Final[int] = 1024 * KILOBYTE
+GIGABYTE: Final[int] = 1024 * MEGABYTE
+
+
+# =============================================================================
+# Configuração Geral
+# =============================================================================
+
+DEFAULT_ENCODING: Final[str] = "utf-8"
+DEFAULT_LANGUAGE: Final[str] = "pt-BR"
+DEFAULT_TIMEZONE: Final[str] = "America/Sao_Paulo"
+
+
+# =============================================================================
+# Banco de Dados
+# =============================================================================
+
+DEFAULT_DATABASE_FILENAME: Final[str] = "ppp.db"
+
+
+# =============================================================================
+# Logging
+# =============================================================================
+
+DEFAULT_LOG_LEVEL: Final[str] = "INFO"
+DEFAULT_LOG_RETENTION: Final[str] = "30 days"
+DEFAULT_LOG_ROTATION: Final[str] = "10 MB"
+
+
+# =============================================================================
+# Upload de Arquivos
+# =============================================================================
+
+MAX_UPLOAD_SIZE: Final[int] = 50 * MEGABYTE
+
+
+# =============================================================================
+# Documentos
+# =============================================================================
+
+DEFAULT_OUTPUT_DIRECTORY: Final[str] = "output"
+DEFAULT_WORD_TEMPLATE: Final[str] = "PPP_Template.docx"
