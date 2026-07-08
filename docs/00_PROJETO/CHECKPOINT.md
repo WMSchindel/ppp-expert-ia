@@ -44,10 +44,15 @@ Status: ✅ Concluído
 
 ## Última Atividade Realizada
 
-Implementação completa do logger centralizado com Loguru.
+Padronização de nomenclatura em todos os diretórios de documentação.
 
-O módulo foi estruturado como singleton, encapsulando toda a complexidade da 
-biblioteca e fornecendo uma interface simples para a aplicação.
+Todos os arquivos agora seguem o padrão sequencial:
+- REQ-0001 a REQ-0005 (Requisitos)
+- ER-0001 a ER-0004 (Engineering Review)
+- CAP-0001 a CAP-0005 (Capítulos do Livro)
+- ENG-0001 a ENG-0004 (Diários de Engenharia)
+
+Commit: 683f4d2
 
 ---
 
