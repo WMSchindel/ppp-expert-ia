@@ -1,0 +1,9 @@
+__init__
+application
+core
+domain
+environment
+infrastructure
+initializer
+main
+presentation

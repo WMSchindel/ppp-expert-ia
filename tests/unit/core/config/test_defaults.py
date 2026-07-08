@@ -14,6 +14,7 @@ from core.config.defaults import (
     KILOBYTE,
     MAX_UPLOAD_SIZE,
     MEGABYTE,
+    DEFAULT_ENVIRONMENT,
 )
 
 
@@ -23,6 +24,14 @@ def test_storage_units():
     assert KILOBYTE == 1024
     assert MEGABYTE == 1024 * KILOBYTE
     assert GIGABYTE == 1024 * MEGABYTE
+
+
+def test_default_environment():
+    """Verifica o ambiente padrão."""
+
+    from core.config.environments import Environment
+
+    assert DEFAULT_ENVIRONMENT == Environment.DEVELOPMENT
 
 
 def test_default_general_settings():
@@ -56,3 +65,5 @@ def test_document_defaults():
 
     assert DEFAULT_OUTPUT_DIRECTORY == "output"
     assert DEFAULT_WORD_TEMPLATE == "PPP_Template.docx"
+
+

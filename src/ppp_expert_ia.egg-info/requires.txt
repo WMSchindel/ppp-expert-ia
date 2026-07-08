@@ -1,0 +1,11 @@
+loguru
+python-dotenv
+rich
+pydantic
+pydantic-settings
+sqlalchemy
+alembic
+python-docx
+docxtpl
+pdfplumber
+pymupdf
