@@ -7,7 +7,7 @@
 | Projeto      | PPP Expert IA      |
 | Versão       | 0.1.0-alpha        |
 | Sprint Atual | Sprint 001         |
-| Pacote Atual | CF-005.01          |
+| Pacote Atual | CF-005.02          |
 | Status       | Em Desenvolvimento |
 
 ---
@@ -35,6 +35,7 @@
 | Pacote                  | Status |
 | ----------------------- | :----: |
 | CF-005.01 - Logger      |   ✅   |
+| CF-005.02 - Integration |   ✅   |
 
 ---
 
@@ -51,8 +52,8 @@
 
 ## Testes
 
-- **Total**: 28 testes
-- **Passando**: 28
+- **Total**: 35 testes
+- **Passando**: 35
 - **Falhando**: 0
 - **Taxa de sucesso**: 100%
 
@@ -60,33 +61,32 @@
 
 ## Documentação
 
-- ✅ 5 Especificações Técnicas (REQ)
+- ✅ 6 Especificações Técnicas (REQ)
 - ✅ 5 Engineering Reviews (ER)
-- ✅ 5 Capítulos do Livro (CAP)
+- ✅ 6 Capítulos do Livro (CAP)
 - ✅ 5 Diários de Engenharia (ENG)
-- ✅ 2 Documentações Técnicas (TEC)
+- ✅ 3 Documentações Técnicas (TEC)
 
 ---
 
 ## Último Pacote Concluído
 
-**CF-005.01 — Logger**
+**CF-005.02 — Integração do Logger**
 
 Status: ✅ CONCLUÍDO
 
-Data: 09/07/2026
+Data: 08/07/2026
 
-Resultado: Infraestrutura de logging centralizada implementada com 5 testes 
-aprovados.
+Resultado: Lazy initialization pattern implementado com 7 testes de 
+integração, resolvendo problema de circular imports.
 
 ---
 
 ## Próximo Pacote
 
-**CF-005.02 — Integração do Logger**
+**CF-005.03 — Logger em Domain Layers**
 
-Objetivo: Adicionar logging aos módulos existentes e validar funcionamento 
-em contextos reais.
+Objetivo: Adicionar logging aos módulos domain e application layers.
 
 ---
 

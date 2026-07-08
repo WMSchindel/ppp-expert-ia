@@ -1,6 +1,6 @@
 # CHECKPOINT DO PROJETO
 
-**Data:** 09/07/2026
+**Data:** 08/07/2026
 
 ## Projeto
 
@@ -10,7 +10,7 @@ PPP Expert IA
 
 ## Pacote Atual
 
-CF-005.01 — Logger
+CF-005.02 — Integração do Logger
 
 Status: ✅ Concluído
 
@@ -20,17 +20,17 @@ Status: ✅ Concluído
 
 ✅ Implementação concluída
 
-✅ Testes implementados (5 novos testes + 28/28 total passando)
+✅ Testes implementados (7 novos testes + 35/35 total passando)
 
 ✅ Code Review realizado
 
-✅ Engineering Review concluído (ER-0005)
+✅ Engineering Review concluído (ER-0005_Logger_Integration.md)
 
-✅ Documentação Técnica concluída (LOGGING.md)
+✅ Documentação Técnica concluída (LOGGING_INTEGRATION.md)
 
-✅ Capítulo do Livro concluído (CAP-0005)
+✅ Capítulo do Livro concluído (CAP-0006_Logger_Integration.md)
 
-✅ Diário de Engenharia concluído (ENG-0005)
+✅ Diário de Engenharia concluído (ENG-0005_Logger_Integration.md)
 
 ✅ STATUS_DO_PROJETO atualizado
 
@@ -38,42 +38,40 @@ Status: ✅ Concluído
 
 ✅ CHANGELOG atualizado
 
-✅ Commit Git realizado (3c8e482)
+✅ Commit Git realizado (8d89a3c)
 
 ---
 
 ## Última Atividade Realizada
 
-Padronização de nomenclatura em todos os diretórios de documentação.
+Implementação de CF-005.02 com padrão de lazy initialization.
 
-Todos os arquivos agora seguem o padrão sequencial:
-- REQ-0001 a REQ-0005 (Requisitos)
-- ER-0001 a ER-0004 (Engineering Review)
-- CAP-0001 a CAP-0005 (Capítulos do Livro)
-- ENG-0001 a ENG-0004 (Diários de Engenharia)
+Módulo initializer coordena startup com logging estruturado, resolvendo 
+problema de circular imports.
 
-Commit: 683f4d2
+Commits: 
+- e1b527c (implementação + testes)
+- 8d89a3c (documentação completa)
 
 ---
 
 ## Próxima Atividade
 
-Iniciar CF-005.02 — Integração do Logger
+Iniciar CF-005.03 — Logger em Domain Layers
 
-Objetivo: Adicionar logging aos módulos existentes (Environment, Defaults, 
-Settings, Paths, Version) e validar funcionamento em contextos reais.
+Objetivo: Adicionar logging aos módulos domain e application layers.
 
 ---
 
 ## Próximo Pacote
 
-CF-005.02 — Integração do Logger
+CF-005.03 — Logger em Domain Layers
 
 Escopo previsto:
 
-- Adicionar logger.info() em pontos-chave dos módulos existentes
-- Testar em ambiente de desenvolvimento
-- Testar em ambiente de testes
+- Adicionar logger.info() em entidades domain
+- Adicionar logger.debug() em use cases
+- Adicionar logger.info() em services
 - Validar formatação das mensagens
 - Ajustar níveis de log conforme necessário
 
@@ -87,17 +85,18 @@ Escopo previsto:
 | CF-004.02  | Defaults          |   ✅   |
 | CF-004.03  | Settings          |   ✅   |
 | CF-005.01  | Logger            |   ✅   |
-| CF-005.02  | Logger Integration| ⏳ |
+| CF-005.02  | Logger Integration|   ✅   |
+| CF-005.03  | Domain Logging    | ⏳ |
 
 ---
 
 ## Métricas
 
-- **Total de testes**: 28
+- **Total de testes**: 35
 - **Taxa de sucesso**: 100%
-- **Arquivos criados**: 11 novos arquivos
-- **Arquivos modificados**: 3 arquivos
-- **Linhas adicionadas**: ~1690
+- **Arquivos criados**: 16 novos arquivos (+ REQ-0006 + initializer.py + 4 docs)
+- **Arquivos modificados**: 5 arquivos (status, continuar, changelog, checkpoint, etc)
+- **Linhas adicionadas**: ~3000
 - **Sem regressões**: ✅
 
 ---

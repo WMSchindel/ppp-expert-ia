@@ -8,7 +8,7 @@
 
 # Último pacote concluído
 
-CF-005.01 — Logger
+CF-005.02 — Integração do Logger
 
 Status: ✅ Concluído
 
@@ -20,38 +20,40 @@ Status: ✅ Concluído
 - CF-004.02 — Defaults
 - CF-004.03 — Settings
 - CF-005.01 — Logger
+- CF-005.02 — Integração do Logger
 
 ---
 
 # Situação atual
 
-Infraestrutura de configuração e logging completamente implementada.
+Infraestrutura de configuração e logging completamente integrada.
 
 Componentes implementados:
 
 - Environment
 - Defaults
 - Settings
-- Logger
+- Logger (com integração lazy-initialization)
+- Initializer (coordenação de startup)
 
 Todos os módulos encontram-se:
 
 - implementados;
-- testados (28/28 passando);
+- testados (35/35 passando);
 - revisados;
-- documentados.
+- documentados;
+- integrados.
 
 ---
 
 # Próximo pacote
 
-CF-005.02 — Integração do Logger
+CF-005.03 — Logger em Domain Layers
 
 Objetivo:
 
-Adicionar logging aos módulos existentes (Environment, Defaults, Settings, 
-Paths, Version) e validar que o logger funciona corretamente em contextos 
-reais.
+Adicionar logging aos módulos domain e application layers, expandindo 
+observabilidade para as camadas de negócio da aplicação.
 
 ---
 
