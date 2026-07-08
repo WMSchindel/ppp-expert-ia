@@ -104,6 +104,11 @@ class Settings(BaseSettings):
         """Retorna o diretório de saída."""
         return self.project_root / self.output_directory
 
+    @property
+    def logs_path(self) -> Path:
+        """Retorna o diretório de logs."""
+        return self.project_root / "data" / "logs"
+
 
 # =============================================================================
 # Instância global de configurações

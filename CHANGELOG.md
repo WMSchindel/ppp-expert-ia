@@ -1,74 +1,121 @@
-## [0.1.0-alpha] - 2026-07-02
-
-### Adicionado
-
-- Arquitetura 1.1
-- Metodologia baseada em requisitos
-- Requisito CF-001
-- Módulo Version
-
 ## [0.1.0-alpha]
 
-### Added
+### Added - CF-005.01 Logger
 
-- Implementado o módulo Environment.
-- Criado o primeiro teste automatizado utilizando Pytest.
-- Estruturada a documentação inicial do sistema de configuração.
+- Implementação da infraestrutura centralizada de logging utilizando Loguru
+- Módulo `core/logging/logger.py` com singleton pattern
+- Encapsulamento completo do Loguru
+- Dupla saída: console (colorida) + arquivo (estruturado)
+- Integração automática com Settings para configuração de:
+  - Nível de log (log_level)
+  - Rotação de arquivos (log_rotation)
+  - Retenção de logs (log_retention)
+  - Diretório de logs (logs_path)
+- Criação automática de diretórios de logs
+- 5 testes unitários para o logger
+- Engineering Review ER-0005 concluído
+- Capítulo do Livro CAP-0005 concluído
+- Diário de Engenharia ENG-0005 concluído
+- Documentação Técnica LOGGING.md atualizada
 
-# Changelog
+### Resultado
 
-## [0.1.0-alpha]
+- Total de testes: 28
+- Taxa de sucesso: 100%
+- Nenhuma regressão introduzida
+- Arquitetura mantida estável
 
-### Added
+---
 
-- Estrutura inicial do projeto.
-- Primeiro módulo do SST Core (`Environment`).
-- Primeiro teste automatizado com Pytest.
-- Estrutura de documentação técnica.
-- Estrutura do livro.
-- Engineering Review.
-- ADR da estratégia de imports.
-
-# Changelog
-
-## [0.1.0-alpha]
-
-### Added
-
-- Implementação do módulo `defaults.py`.
-- Centralização das constantes globais da aplicação.
-- Introdução do uso de `typing.Final`.
-- Eliminação de números mágicos através de constantes intermediárias.
-- Testes unitários para o módulo `defaults.py`.
-- Documentação técnica do módulo.
-- Engineering Review ER-0002.
-- Capítulo do livro CAP-0003.
-- Diário de Engenharia ENG-0002.
-
-# ----------------------------------------------------------------------
-
-## [CF-004.03] - 08/07/2026
+## [0.1.0-alpha] - CF-004.03 Settings
 
 ### Implementado
 
-- Classe Settings baseada em Pydantic Settings.
-- Integração com defaults.py.
-- Integração com Environment.
-- Instância global settings.
-- Configuração centralizada da aplicação.
+- Classe Settings baseada em Pydantic Settings
+- Integração com defaults.py
+- Integração com Environment
+- Instância global settings
+- Configuração centralizada da aplicação
 
 ### Testes
 
-- Testes unitários da classe Settings.
-- Revisão dos testes dependentes do arquivo .env.
+- Testes unitários da classe Settings
+- Revisão dos testes dependentes do arquivo .env
+- 17 testes para o subsistema de configuração
 
 ### Documentação
 
-- Engineering Review.
-- Documentação Técnica.
-- Capítulo do Livro.
-- Diário de Engenharia.
+- Engineering Review ER-0002
+- Documentação Técnica SETTINGS.md
+- Capítulo do Livro CAP-0003
+- Diário de Engenharia ENG-0002
 
 ### Situação
 
-✅ Pacote concluído.
+✅ Pacote concluído com 23 testes passando
+
+---
+
+## [0.1.0-alpha] - CF-004.02 Defaults
+
+### Implementado
+
+- Módulo defaults.py com constantes globais
+- Centralização das configuraÇões padrão da aplicação
+- Introdução do uso de typing.Final
+- Eliminação de números mágicos
+
+### Testes
+
+- 7 testes unitários para defaults.py
+- Verificação de unidades de medida
+- Verificação de configuraÇões por grupo
+
+### Documentação
+
+- Engineering Review ER-0002
+- Capítulo do Livro CAP-0003
+- Diário de Engenharia ENG-0002
+
+### Situação
+
+✅ Pacote concluído
+
+---
+
+## [0.1.0-alpha] - CF-004.01 Environment
+
+### Implementado
+
+- Módulo Environment com Enum dos ambientes suportados
+- Suporte a DEVELOPMENT, TEST, PRODUCTION
+- HeranÇa de str para compatibilidade com Pydantic
+
+### Testes
+
+- 1 teste unitário para Environment
+- VerificaÇão de valores
+
+### Documentação
+
+- Engineering Review ER-0001
+- Capítulo do Livro CAP-0002
+- Diário de Engenharia ENG-0001
+
+### Situação
+
+✅ Pacote concluído
+
+---
+
+## [0.1.0-alpha] - Inicial
+
+### Adicionado
+
+- Arquitetura Clean Architecture implementada
+- Estrutura de pastas padronizada
+- Sistema de configuração com pydantic-settings
+- Logging centralizado com Loguru
+- Suite de testes com Pytest
+- Documentação técnica completa
+- Material didático (livro) em progresso
