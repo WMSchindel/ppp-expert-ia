@@ -1,6 +1,6 @@
 # CHECKPOINT DO PROJETO
 
-**Data:** 08/07/2026
+**Data:** 09/07/2026
 
 ## Projeto
 
@@ -10,7 +10,7 @@ PPP Expert IA
 
 ## Pacote Atual
 
-CF-005.02 — Integração do Logger
+CF-005.03 — Logger em Domain e Application Layers
 
 Status: ✅ Concluído
 
@@ -20,17 +20,17 @@ Status: ✅ Concluído
 
 ✅ Implementação concluída
 
-✅ Testes implementados (7 novos testes + 35/35 total passando)
+✅ Testes implementados (21 novos testes + 56/56 total passando)
 
 ✅ Code Review realizado
 
-✅ Engineering Review concluído (ER-0005_Logger_Integration.md)
+✅ Engineering Review concluído (ER-0006_Domain_Application_Logger.md)
 
-✅ Documentação Técnica concluída (LOGGING_INTEGRATION.md)
+✅ Documentação Técnica concluída (DOMAIN_APPLICATION_LOGGING.md)
 
-✅ Capítulo do Livro concluído (CAP-0006_Logger_Integration.md)
+✅ Capítulo do Livro concluído (CAP-0007_Domain_Application_Layers.md)
 
-✅ Diário de Engenharia concluído (ENG-0005_Logger_Integration.md)
+✅ Diário de Engenharia concluído (ENG-0006_Domain_Application_Logger.md)
 
 ✅ STATUS_DO_PROJETO atualizado
 
@@ -38,7 +38,7 @@ Status: ✅ Concluído
 
 ✅ CHANGELOG atualizado
 
-✅ Commit Git realizado (8d89a3c)
+✅ Commit Git realizado (46fa222)
 
 ---
 
@@ -86,17 +86,18 @@ Escopo previsto:
 | CF-004.03  | Settings          |   ✅   |
 | CF-005.01  | Logger            |   ✅   |
 | CF-005.02  | Logger Integration|   ✅   |
-| CF-005.03  | Domain Logging    | ⏳ |
+| CF-005.03  | Domain/App Logger |   ✅   |
+| CF-005.04  | Infrastructure    | ⏳ |
 
 ---
 
 ## Métricas
 
-- **Total de testes**: 35
+- **Total de testes**: 56
 - **Taxa de sucesso**: 100%
-- **Arquivos criados**: 16 novos arquivos (+ REQ-0006 + initializer.py + 4 docs)
-- **Arquivos modificados**: 5 arquivos (status, continuar, changelog, checkpoint, etc)
-- **Linhas adicionadas**: ~3000
+- **Arquivos criados**: 25+ arquivos (4 base classes + 8 test files + 4 docs)
+- **Arquivos modificados**: 8 arquivos (status, continuar, changelog, checkpoint, etc)
+- **Linhas adicionadas**: ~4500
 - **Sem regressões**: ✅
 
 ---

@@ -8,7 +8,7 @@
 
 # Último pacote concluído
 
-CF-005.02 — Integração do Logger
+CF-005.03 — Logger em Domain e Application Layers
 
 Status: ✅ Concluído
 
@@ -21,6 +21,7 @@ Status: ✅ Concluído
 - CF-004.03 — Settings
 - CF-005.01 — Logger
 - CF-005.02 — Integração do Logger
+- CF-005.03 — Domain e Application Logging
 
 ---
 
@@ -48,12 +49,12 @@ Todos os módulos encontram-se:
 
 # Próximo pacote
 
-CF-005.03 — Logger em Domain Layers
+CF-005.04 — Logger em Infrastructure Layer
 
 Objetivo:
 
-Adicionar logging aos módulos domain e application layers, expandindo 
-observabilidade para as camadas de negócio da aplicação.
+Adicionar logging aos módulos de persistência, generators e parsers, 
+completando a cobertura de logging em todas as camadas.
 
 ---
 

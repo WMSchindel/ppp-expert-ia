@@ -7,7 +7,7 @@
 | Projeto      | PPP Expert IA      |
 | Versão       | 0.1.0-alpha        |
 | Sprint Atual | Sprint 001         |
-| Pacote Atual | CF-005.02          |
+| Pacote Atual | CF-005.03          |
 | Status       | Em Desenvolvimento |
 
 ---
@@ -36,6 +36,7 @@
 | ----------------------- | :----: |
 | CF-005.01 - Logger      |   ✅   |
 | CF-005.02 - Integration |   ✅   |
+| CF-005.03 - Domain/App  |   ✅   |
 
 ---
 
@@ -52,8 +53,8 @@
 
 ## Testes
 
-- **Total**: 35 testes
-- **Passando**: 35
+- **Total**: 56 testes
+- **Passando**: 56
 - **Falhando**: 0
 - **Taxa de sucesso**: 100%
 
@@ -61,32 +62,32 @@
 
 ## Documentação
 
-- ✅ 6 Especificações Técnicas (REQ)
-- ✅ 5 Engineering Reviews (ER)
-- ✅ 6 Capítulos do Livro (CAP)
-- ✅ 5 Diários de Engenharia (ENG)
-- ✅ 3 Documentações Técnicas (TEC)
+- ✅ 7 Especificações Técnicas (REQ)
+- ✅ 6 Engineering Reviews (ER)
+- ✅ 7 Capítulos do Livro (CAP)
+- ✅ 6 Diários de Engenharia (ENG)
+- ✅ 4 Documentações Técnicas (TEC)
 
 ---
 
 ## Último Pacote Concluído
 
-**CF-005.02 — Integração do Logger**
+**CF-005.03 — Logger em Domain e Application Layers**
 
 Status: ✅ CONCLUÍDO
 
-Data: 08/07/2026
+Data: 09/07/2026
 
-Resultado: Lazy initialization pattern implementado com 7 testes de 
-integração, resolvendo problema de circular imports.
+Resultado: 4 classes base com logging automático (Entity, ValueObject, 
+Service, UseCase). 21 testes novos, total 56 testes.
 
 ---
 
 ## Próximo Pacote
 
-**CF-005.03 — Logger em Domain Layers**
+**CF-005.04 — Logger em Infrastructure Layer**
 
-Objetivo: Adicionar logging aos módulos domain e application layers.
+Objetivo: Adicionar logging aos módulos de persistência e infraestrutura.
 
 ---
 

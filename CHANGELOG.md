@@ -1,5 +1,29 @@
 ## [0.1.0-alpha]
 
+### Added - CF-005.03 Domain and Application Layer Logging
+
+- Implementação de Entity base class com logging automático
+- Implementação de ValueObject base class com igualdade e hashing
+- Implementação de Service base class com logging de execução
+- Implementação de UseCase base class com Request/Response pattern
+- 21 testes unitários para domain e application layers
+- Documentação técnica DOMAIN_APPLICATION_LOGGING.md
+- Capítulo do Livro CAP-0007 com exemplos práticos
+- Especificação técnica REQ-0007
+- Engineering Review ER-0006
+- Diário de Engenharia ENG-0006
+
+### Resultado
+
+- Total de testes: 56 (35 + 21 novos)
+- Taxa de sucesso: 100%
+- Nenhuma regressão
+- Logging automático em todas as camadas
+
+---
+
+## [0.1.0-alpha]
+
 ### Added - CF-005.02 Logger Integration
 
 - Implementação do módulo initializer para lazy initialization
