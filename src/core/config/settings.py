@@ -52,6 +52,9 @@ class Settings(BaseSettings):
     # =========================================================================
 
     database_filename: str = DEFAULT_DATABASE_FILENAME
+    database_url: str = "sqlite:///test.db"
+    database_pool_size: int = 20
+    database_max_overflow: int = 40
 
     # =========================================================================
     # Logging
