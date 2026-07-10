@@ -1,6 +1,6 @@
 ﻿"""Pydantic schemas for Usuario API."""
 
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, ConfigDict
 from typing import Optional
 from datetime import datetime
 
@@ -8,14 +8,8 @@ from datetime import datetime
 class CriarUsuarioRequest(BaseModel):
     """Request to create usuario."""
 
-    nome: str = Field(..., min_length=1, max_length=255, description="Nome do usuario")
-    email: EmailStr = Field(..., description="Email do usuario")
-    cpf: str = Field(..., pattern=r"^\d{11}$", description="CPF com 11 digitos")
-    empresa: str = Field(..., min_length=1, max_length=255, description="Empresa")
-    cargo: str = Field(..., min_length=1, max_length=255, description="Cargo")
-
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "nome": "Werner",
                 "email": "werner@example.com",
@@ -24,10 +18,19 @@ class CriarUsuarioRequest(BaseModel):
                 "cargo": "Dev",
             }
         }
+    )
+
+    nome: str = Field(..., min_length=1, max_length=255, description="Nome do usuario")
+    email: EmailStr = Field(..., description="Email do usuario")
+    cpf: str = Field(..., pattern=r"^\d{11}$", description="CPF com 11 digitos")
+    empresa: str = Field(..., min_length=1, max_length=255, description="Empresa")
+    cargo: str = Field(..., min_length=1, max_length=255, description="Cargo")
 
 
 class UsuarioResponse(BaseModel):
     """Response with usuario data."""
+
+    model_config = ConfigDict(from_attributes=True)
 
     id: int
     nome: str
@@ -36,9 +39,6 @@ class UsuarioResponse(BaseModel):
     cargo: str
     ativo: bool
     data_criacao: datetime
-
-    class Config:
-        from_attributes = True
 
 
 class CriarUsuarioResponse(BaseModel):

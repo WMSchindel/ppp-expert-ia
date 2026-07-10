@@ -1,8 +1,20 @@
 ﻿"""FastAPI application entry point."""
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from src.core.logging import logger
 from src.presentation.routes.usuarios_routes import router as usuarios_router
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Manage application lifecycle."""
+    # Startup
+    logger.info("FastAPI application starting")
+    yield
+    # Shutdown
+    logger.info("FastAPI application shutting down")
+
 
 app = FastAPI(
     title="PPP Expert IA",
@@ -11,19 +23,8 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
     openapi_url="/openapi.json",
+    lifespan=lifespan,
 )
-
-
-@app.on_event("startup")
-async def startup_event():
-    """Initialize application on startup."""
-    logger.info("FastAPI application starting")
-
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    """Cleanup on shutdown."""
-    logger.info("FastAPI application shutting down")
 
 
 @app.get("/health", tags=["health"])
