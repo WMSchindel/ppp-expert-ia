@@ -6,7 +6,7 @@ Centraliza todos os valores padrão utilizados pela aplicação.
 
 from typing import Final
 
-from core.config.environments import Environment
+from src.core.config.environments import Environment
 
 
 # =============================================================================

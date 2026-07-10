@@ -2,15 +2,16 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
-from src.core.config import settings
+from src.core.config.settings import settings
 from src.core.logging import logger
+from src.infrastructure.persistence.models.usuario_model import Base
 
 # Create engine
 engine = create_engine(
     settings.database_url,
     pool_size=settings.database_pool_size,
     max_overflow=settings.database_max_overflow,
-    echo=settings.debug,  # Log SQL queries in development
+    echo=False,  # SQL query logging
 )
 
 # Create session factory

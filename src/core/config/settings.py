@@ -12,7 +12,7 @@ from pydantic_settings import (
     SettingsConfigDict,
 )
 
-from core.config.defaults import (
+from src.core.config.defaults import (
     DEFAULT_DATABASE_FILENAME,
     DEFAULT_ENCODING,
     DEFAULT_ENVIRONMENT,
@@ -26,7 +26,7 @@ from core.config.defaults import (
     MAX_UPLOAD_SIZE,
 )
 
-from core.config.environments import Environment
+from src.core.config.environments import Environment
 
 
 class Settings(BaseSettings):
